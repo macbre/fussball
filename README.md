@@ -7,22 +7,23 @@ IR-based goal system for football tables
 
 <img src="https://raw.githubusercontent.com/macbre/fussball/master/schematics/main.png" />
 
+* 2x LTE4206 (emitters)
+* 2x IR photodiodes + TL082 (detectors)
+* 2x white LEDs (goal indicators)
+* ATmega16 uC (measures the time of ball passing and sends the data over RS232)
+
 ## Software
 
 ### Requirements
 
 Linux AVR tools chain:
 
-* Install the following packages:
-
 ```
-aptitude install eagle \
-        eclipse \
-        avrdude gcc-avr avr-libc
+aptitude install eagle avrdude gcc-avr avr-libc
 ```
 
-* Build [gnome-avrdude](http://sourceforge.net/projects/gnome-avrdude/) GUI:
+### Compiling and building
 
 ```
-aptitude install libgnome2-dev libglade2-dev libgnomeui-dev
+make
 ```
