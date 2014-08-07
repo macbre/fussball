@@ -28,10 +28,29 @@ apt-get install eagle avrdude gcc-avr avr-lib gtkterm
 make
 ```
 
-### RS232 console
+### Serial communication
 
-> RS232 communication runs at the speed of 9600 bps (8N1)
+> Serial communication runs at the speed of 115200 bps (8N1)
 
 ```
-gtkterm --port /dev/ttyS0 --bits 8 --stopbits 1 --parity none
+gtkterm --port /dev/ttyS0 --speed 115200 --bits 8 --stopbits 1 --parity none
  ```
+
+#### Messages
+
+* Diagnostic messages (with leading ``#``)
+
+```
+# Hi!
+# Aug  7 2014 11:11:41
+# avr-gcc v1.7.1 (20110216)
+```
+
+* Time measurements
+
+```
+!<detector ID>:<time in ms>
+!1:124
+!2:98
+```
+
