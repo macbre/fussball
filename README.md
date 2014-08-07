@@ -19,7 +19,7 @@ IR-based goal system for football tables
 Linux AVR tools chain:
 
 ```
-aptitude install eagle avrdude gcc-avr avr-libc
+apt-get install eagle avrdude gcc-avr avr-lib gtkterm
 ```
 
 ### Compiling and building
@@ -27,3 +27,11 @@ aptitude install eagle avrdude gcc-avr avr-libc
 ```
 make
 ```
+
+### RS232 console
+
+> RS232 communication runs at the speed of 9600 bps (8N1)
+
+```
+gtkterm --port /dev/ttyS0 --bits 8 --stopbits 1 --parity none
+ ```
