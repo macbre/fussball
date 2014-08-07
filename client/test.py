@@ -6,13 +6,14 @@ from random import randint
 
 def write_fake_msg(ser):
     """Writes random ![int]:[int] message to the serial port"""
-    gate = randint(1,2)
-    speed = randint(1,100)
+    gate = randint(1, 2)
+    speed = randint(1000, 1000000)
     message = '!' + str(gate) + ':' + str(speed)
     print("Sending '%s'..." % message)
     ser.write(message + "\n")
 
-ser = serial.Serial('/dev/pts/1', 19200)
+ser = serial.Serial('/dev/pts/2', 19200)
+print 'Connected to %s' % ser.name
 try:
     print "Press any key to exit..."
     while True:
