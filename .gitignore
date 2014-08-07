@@ -25,4 +25,6 @@
 # tmp files
 *.swp
 *~
+.idea
 *.s#*
+*.pyc
