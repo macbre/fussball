@@ -6,3 +6,7 @@
 
 void led_init();
 void led_startup();
+
+void led_on(unsigned char);
+void led_off(unsigned char);
+

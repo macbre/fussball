@@ -1,5 +1,5 @@
 # Fussball makefile
-FILES=main.c lib/led.c lib/rs.c
+FILES=main.c lib/detectors.c lib/led.c lib/rs.c
 
 all: compile write
 

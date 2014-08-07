@@ -5,8 +5,9 @@
  *      Author: macbre
  */
 #include <avr/io.h>
-#include <util/delay.h>
 #include <avr/pgmspace.h>
+#include <avr/interrupt.h>
+#include <util/delay.h>
 
 #include "macros.h"
 
@@ -14,6 +15,7 @@
 #define RS_BAUD 115200
 
 // libraries
+#include "lib/detectors.h"
 #include "lib/led.h"
 #include "lib/rs.h"
 
@@ -23,22 +25,21 @@ const char HELLO_MESSAGE[] PROGMEM =  "# Hi!\r\n" \
 	"# avr-gcc v" __AVR_LIBC_VERSION_STRING__ " (" __AVR_LIBC_DATE_STRING__ ")\r\n";
 
 void init() {
+	rs_init(RS_BAUD);
+	rs_text_P(HELLO_MESSAGE);
+
 	led_init();
 	led_startup();
 
-	rs_init(RS_BAUD);
-	rs_text_P(HELLO_MESSAGE);
+	detectors_init();
 }
 
 int main() {
+	// enable interrupts
+	sei();
+
 	init();
 
-	for(;;) {
-		sbi(PORTB, 1);
-		_delay_ms(500);
-
-		cbi(PORTB, 1);
-		_delay_ms(5);
-	}
+	for(;;);
 }
 
