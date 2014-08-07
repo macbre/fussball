@@ -11,9 +11,13 @@
 // libraries
 #include "lib/led.h"
 
-int main() {
+void init() {
 	led_init();
 	led_startup();
+}
+
+int main() {
+	init();
 
 	for(;;) {
 		sbi(PORTB, 1);
