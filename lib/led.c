@@ -8,12 +8,20 @@ void led_init() {
 
 void led_startup() {
 	// on
-	cbi(PORTB, LED1);
-	cbi(PORTB, LED2);
+	led_on(LED1);
+	led_on(LED2);
 
 	_delay_ms(500);
 
 	// off
-	sbi(PORTB, LED1);
-	sbi(PORTB, LED2);
+	led_off(LED1);
+	led_off(LED2);
+}
+
+void led_on(unsigned char led) {
+	cbi(PORTB, led);
+}
+
+void led_off(unsigned char led) {
+	sbi(PORTB, led);
 }
