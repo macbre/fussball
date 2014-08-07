@@ -16,5 +16,5 @@ void rs_text(char[]);
 // send a PGM string (from program memory, i.e. flash)
 void rs_text_P(PGM_P);
 
-// send an integer
-void rs_int(int);
+// send an unsigned long
+void rs_long(unsigned long);

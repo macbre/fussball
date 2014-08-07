@@ -43,8 +43,8 @@ void rs_text_P(PGM_P txt) {
 	}
 }
 
-// send an integer
-void rs_int(int value) {
+// send an unsigned long
+void rs_long(unsigned long value) {
 	char buf[8];
-	rs_text( itoa(value, buf, 10) );
+	rs_text( ultoa(value, buf, 10) );
 }

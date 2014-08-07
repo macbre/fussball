@@ -49,8 +49,8 @@ gtkterm --port /dev/ttyS0 --speed 115200 --bits 8 --stopbits 1 --parity none
 * Time measurements
 
 ```
-!<detector ID>:<time in ms>
-!1:124
-!2:98
+!<detector ID>:<time in us>
+!1:39500
+!1:130550
 ```
 
