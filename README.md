@@ -8,7 +8,7 @@ IR-based goal system for football tables
 <img src="https://raw.githubusercontent.com/macbre/fussball/master/schematics/main.png" />
 
 * 2x LTE4206 (emitters)
-* 2x IR photodiodes + TL082 (detectors)
+* 2x IR photodiodes + LM324N op-amp (detectors)
 * 2x white LEDs (goal indicators)
 * ATmega16 uC (measures the time of ball passing and sends the data over RS232)
 
