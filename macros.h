@@ -1,5 +1,4 @@
 #include <avr/io.h>
-#include <util/delay.h>
 
 // helper macros
 #define cbi(sfr, bit) (_SFR_BYTE(sfr) &= ~(1<<bit))
