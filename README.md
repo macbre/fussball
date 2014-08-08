@@ -93,3 +93,28 @@ If you have `mplayer` installed and there are still no sounds played when scores
 
 #### I don't like the sounds provided with the client
 Just put any `*.wav` or `*.mp3` files to `client/sounds/` directory.
+
+#### All is working but there are strange mplayer messages
+```sh
+~/PycharmProjects/fussball/client$ python client.py 
+To exit press Ctrl^C...
+Connected to /dev/ttyS0
+Ball got into the goal no.2 with 0.16 speed [km/h].
+
+mplayer: could not connect to socket
+mplayer: No such file or directory
+Ball got into the goal no.2 with 0.20 speed [km/h].
+
+mplayer: could not connect to socket
+mplayer: No such file or directory
+Ball got into the goal no.1 with 5.38 speed [km/h].
+
+mplayer: could not connect to socket
+mplayer: No such file or directory
+Ball got into the goal no.2 with 0.16 speed [km/h].
+```
+
+To get rid of the annoying lirc messages simply place the following in `$HOME/.mplayer/config`:
+```sh
+lirc=no
+```
