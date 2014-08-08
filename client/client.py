@@ -22,16 +22,14 @@ def parse_message(line):
 
 def get_speed(time):
     """Based on time and ball size calculates and returns speed in km/h"""
-    #return float(ballSize * 36 / time)
-    return float(2.0 / time)  # 2 is hardcoded ball size in cm
+    return float(3500 * 36 / time)  # 3500 = ball size (3.5 cm)
 
 
 def show_message(data):
     """Displays message on screen"""
-    print "Ball got into the gate no.%i with %f speed [cm/us].\n" % (data["gate"], data["speed"])
+    print "Ball got into the gate no.%i with %f speed [km/h].\n" % (data["gate"], data["speed"])
 
-#ser = serial.Serial('/dev/ttyS0', 115200)
-ser = serial.Serial('/dev/pts/2', 19200)
+ser = serial.Serial('/dev/ttyS0', 115200)
 try:
     print "To exit press Ctrl^C..."
     print 'Connected to %s' % ser.name
