@@ -1,20 +1,22 @@
 import serial
 import time
 import re
+import subprocess
+import random
 
 
 def parse_message(line):
-    """Parsing string and returns dictionary with gate number and time"""
+    """Parsing string and returns dictionary with goal number and time"""
     res = re.match(r"!([0-9]+):([0-9]+)", line)
     if res is None:
         return None
 
-    gate = int(res.group(1))
+    goal = int(res.group(1))
     goalTime = int(res.group(2))
 
-    if gate and goalTime:
+    if goal and goalTime:
         return {
-            "gate": gate,
+            "goal": goal,
             "time": goalTime,
             "speed": None
         }
@@ -27,7 +29,27 @@ def get_speed(time):
 
 def show_message(data):
     """Displays message on screen"""
-    print "Ball got into the gate no.%i with %f speed [km/h].\n" % (data["gate"], data["speed"])
+    print "Ball got into the goal no.%i with %f speed [km/h].\n" % (data["goal"], data["speed"])
+
+
+def play_sound():
+    """Plays a sound with mplayer"""
+    sounds = [
+        './sounds/goal1.wav',
+        './sounds/goal2.wav',
+        './sounds/goal3.wav',
+        './sounds/goal4.wav',
+        './sounds/goal5.wav'
+    ]
+    try:
+        print sounds
+        random.shuffle(sounds)
+        print sounds
+        sound = sounds[0]
+        print sound
+        subprocess.call(['mplayer', sound, '-really-quiet'])
+    except OSError:
+        print "Could not play sound. File not found."
 
 ser = serial.Serial('/dev/ttyS0', 115200)
 try:
@@ -43,6 +65,7 @@ try:
             else:
                 ballData["speed"] = get_speed(ballData["time"])
                 print ballData
+                play_sound()
                 show_message(ballData)
             time.sleep(.01)
         else:
