@@ -24,12 +24,12 @@ def parse_message(line):
 
 def get_speed(time):
     """Based on time and ball size calculates and returns speed in km/h"""
-    return float(3500 * 36 / time)  # 3500 = ball size (3.5 cm)
+    return 3500.0 * 36 / time  # 3500 = ball size (3.5 cm)
 
 
 def show_message(data):
     """Displays message on screen"""
-    print "Ball got into the goal no.%i with %f speed [km/h].\n" % (data["goal"], data["speed"])
+    print "Ball got into the goal no.%i with %.2f speed [km/h].\n" % (data["goal"], data["speed"])
 
 
 def play_sound():
@@ -42,11 +42,8 @@ def play_sound():
         './sounds/goal5.wav'
     ]
     try:
-        print sounds
         random.shuffle(sounds)
-        print sounds
         sound = sounds[0]
-        print sound
         subprocess.call(['mplayer', sound, '-really-quiet'])
     except OSError:
         print "Could not play sound. File not found."
@@ -64,9 +61,8 @@ try:
                 print(line)
             else:
                 ballData["speed"] = get_speed(ballData["time"])
-                print ballData
-                play_sound()
                 show_message(ballData)
+                play_sound()
             time.sleep(.01)
         else:
             ser.close()
