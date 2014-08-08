@@ -72,6 +72,16 @@ Ball got into the goal no.2 with 94.16 speed [km/h].
 Ball got into the goal no.1 with 4.30 speed [km/h].
 ```
 
+### The results
+
+<img src="https://raw.githubusercontent.com/macbre/fussball/master/images/the_table.jpg" />
+
+The football table with detectors mounted and the main board
+
+<img src="https://raw.githubusercontent.com/macbre/fussball/master/images/the_results.jpg" />
+
+Measurements from Python script displayed on the monitor
+
 #### Troubleshooting
 ##### Client doesn't work
 ```sh
